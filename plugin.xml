@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
-    id="com.phonegap.plugins.PushPluginDackus"
+    id="com.dackus.plugins.PushPluginDackus"
     version="2.4.1">
 
   <name>PushPluginDackus</name>
 	<author>Bob Easterday</author>
 
 	<description>
-		Original PushPluginDackus modified
+		Original PushPlugin modified
 		======
 		This plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.
 	    Android uses Google Cloud Messaging.
