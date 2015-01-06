@@ -6,7 +6,7 @@
     id="com.dackus.plugins.PushPluginDackus"
     version="2.4.1">
 
-  <name>PushPluginDackus</name>
+  <name>PushPlugin</name>
 	<author>Bob Easterday</author>
 
 	<description>
@@ -33,8 +33,8 @@
 	<platform name="android">
 
 		<config-file target="res/xml/config.xml" parent="/*">
-			<feature name="PushPluginDackus" >
-				<param name="android-package" value="com.plugin.gcm.PushPluginDackus"/>
+			<feature name="PushPlugin" >
+				<param name="android-package" value="com.plugin.gcm.PushPlugin"/>
 			</feature>
 		</config-file>
 
@@ -64,7 +64,7 @@
 		<source-file src="src/android/com/plugin/gcm/CordovaGCMBroadcastReceiver.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/GCMIntentService.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushHandlerActivity.java" target-dir="src/com/plugin/gcm/" />
-		<source-file src="src/android/com/plugin/gcm/PushPluginDackus.java" target-dir="src/com/plugin/gcm/" />
+		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/android-support-v13.jar" target-dir="libs/" />
 
 	</platform>
@@ -73,8 +73,8 @@
 	<platform name="amazon-fireos">
 
 		<config-file target="res/xml/config.xml" parent="/*">
-			<feature name="PushPluginDackus" >
-				<param name="android-package" value="com.amazon.cordova.plugin.PushPluginDackus"/>
+			<feature name="PushPlugin" >
+				<param name="android-package" value="com.amazon.cordova.plugin.PushPlugin"/>
 			</feature>
             <preference name="showmessageinnotification" value="true" />
             <preference name="defaultnotificationmessage" value="You have a new message." />
@@ -106,7 +106,7 @@
             </receiver>
         </config-file>
 
-        <source-file src="src/amazon/PushPluginDackus.java" target-dir="src/com/amazon/cordova/plugin" />
+        <source-file src="src/amazon/PushPlugin.java" target-dir="src/com/amazon/cordova/plugin" />
         <source-file src="src/amazon/ADMMessageHandler.java" target-dir="src/com/amazon/cordova/plugin" />
         <source-file src="src/amazon/ADMHandlerActivity.java" target-dir="src/com/amazon/cordova/plugin" />
 
@@ -116,16 +116,16 @@
 	<platform name="ios">
 
 		<config-file target="config.xml" parent="/*">
-			<feature name="PushPluginDackus">
-				<param name="ios-package" value="PushPluginDackus"/>
+			<feature name="PushPlugin">
+				<param name="ios-package" value="PushPlugin"/>
 			</feature>
 		</config-file>
 
 		<source-file src="src/ios/AppDelegate+notification.m" />
-		<source-file src="src/ios/PushPluginDackus.m" />
+		<source-file src="src/ios/PushPlugin.m" />
 
 		<header-file src="src/ios/AppDelegate+notification.h" />
-		<header-file src="src/ios/PushPluginDackus.h" />
+		<header-file src="src/ios/PushPlugin.h" />
 
 	</platform>
 
@@ -134,9 +134,9 @@
         <dependency id="com.blackberry.push" />
         <dependency id="com.blackberry.invoked" />
         <config-file target="www/config.xml" parent="/widget">
-            <feature name="PushPluginDackus" value="PushPluginDackus" />
+            <feature name="PushPlugin" value="PushPlugin" />
         </config-file>
-        <js-module src="www/blackberry10/PushPluginDackusProxy.js" name="PushPluginDackusProxy" >
+        <js-module src="www/blackberry10/PushPluginProxy.js" name="PushPluginProxy" >
             <runs />
         </js-module>
     </platform>
@@ -145,8 +145,8 @@
     <platform name="wp8">
 
     <config-file target="config.xml" parent="/*">
-      <feature name="PushPluginDackus">
-        <param name="wp-package" value="PushPluginDackus"/>
+      <feature name="PushPlugin">
+        <param name="wp-package" value="PushPlugin"/>
       </feature>
     </config-file>
 
@@ -154,14 +154,14 @@
       <Capability Name="ID_CAP_PUSH_NOTIFICATION"/>
     </config-file>
 
-    <source-file src="src/wp8/PushPluginDackus.cs" />
+    <source-file src="src/wp8/PushPlugin.cs" />
     <framework src="src/wp8/Newtonsoft.Json.dll" custom="true" />
 
   </platform>
 
   <!-- windows8 -->
   <platform name="windows8">
-    <js-module src="src/windows8/PushPluginDackusProxy.js" name="PushPluginDackus">
+    <js-module src="src/windows8/PushPluginProxy.js" name="PushPlugin">
       <merges target="" />
     </js-module>
   </platform>
