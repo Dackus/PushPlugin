@@ -81,6 +81,18 @@ public class GCMIntentService extends GCMBaseIntentService {
 
 	public void createNotification(Context context, Bundle extras)
 	{
+		int notId = 0;
+		
+		try {
+			notId = Integer.parseInt(extras.getString("notId"));
+		}
+		catch(NumberFormatException e) {
+			Log.e(TAG, "Number format exception - Error parsing Notification ID: " + e.getMessage());
+		}
+		catch(Exception e) {
+			Log.e(TAG, "Number format exception - Error parsing Notification ID" + e.getMessage());
+		}
+		
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		String appName = getAppName(this);
 
@@ -88,7 +100,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 		notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		notificationIntent.putExtra("pushBundle", extras);
 
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent contentIntent = PendingIntent.getActivity(this, notId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 		
 		int defaults = Notification.DEFAULT_ALL;
 
@@ -118,18 +130,6 @@ public class GCMIntentService extends GCMBaseIntentService {
 		String msgcnt = extras.getString("msgcnt");
 		if (msgcnt != null) {
 			mBuilder.setNumber(Integer.parseInt(msgcnt));
-		}
-		
-		int notId = 0;
-		
-		try {
-			notId = Integer.parseInt(extras.getString("notId"));
-		}
-		catch(NumberFormatException e) {
-			Log.e(TAG, "Number format exception - Error parsing Notification ID: " + e.getMessage());
-		}
-		catch(Exception e) {
-			Log.e(TAG, "Number format exception - Error parsing Notification ID" + e.getMessage());
 		}
 		
 		mNotificationManager.notify((String) appName, notId, mBuilder.build());
